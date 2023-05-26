@@ -29,7 +29,7 @@ class PostResource extends Resource
 
     protected static ?string $navigationLabel = 'My Posts';
 
-    // Show only logged in users posts
+    // hasRole is working, its only an error in Intelephense plugin
     public static function getEloquentQuery(): Builder
     {
         if (auth()->user()->hasRole('super_admin'))
