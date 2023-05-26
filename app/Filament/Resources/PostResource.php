@@ -17,6 +17,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Columns\CheckboxColumn;
 use App\Filament\Resources\PostResource\Pages;
+use Illuminate\Database\Eloquent\Builder;
 
 class PostResource extends Resource
 {
@@ -27,6 +28,15 @@ class PostResource extends Resource
     protected static ?string $navigationGroup = 'My Account';
 
     protected static ?string $navigationLabel = 'My Posts';
+
+    // Show only logged in users posts
+    public static function getEloquentQuery(): Builder
+    {
+        if (auth()->user()->hasRole('super_admin'))
+            return parent::getEloquentQuery();
+        return parent::getEloquentQuery()->where('user_id', auth()->id());
+
+    }
 
     public static function form(Form $form): Form
     {
