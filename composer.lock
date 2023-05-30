@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ac62bceac7dbc09ccc3c0574841ab8b",
+    "content-hash": "7427c99de0a147c7c53358de9fbf3549",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -74,6 +74,88 @@
                 "source": "https://github.com/akaunting/laravel-money/tree/4.0.1"
             },
             "time": "2023-03-16T14:39:27+00:00"
+        },
+        {
+            "name": "artmin96/filament-popover",
+            "version": "v1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ArtMin96/filament-popover.git",
+                "reference": "391220c1d3e71b812c79ddd46a30e43601edcc41"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ArtMin96/filament-popover/zipball/391220c1d3e71b812c79ddd46a30e43601edcc41",
+                "reference": "391220c1d3e71b812c79ddd46a30e43601edcc41",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^2.0",
+                "illuminate/contracts": "^9.0|^10.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.13.5"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^6.0",
+                "nunomaduro/larastan": "^2.0.1",
+                "orchestra/testbench": "^7.0",
+                "pestphp/pest": "^1.21",
+                "pestphp/pest-plugin-laravel": "^1.1",
+                "pestphp/pest-plugin-livewire": "^1.0",
+                "pestphp/pest-plugin-parallel": "^0.3",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpunit/phpunit": "^9.5",
+                "spatie/laravel-ray": "^1.26"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ArtMin96\\FilamentPopover\\FilamentPopoverServiceProvider"
+                    ],
+                    "aliases": {
+                        "FilamentPopover": "ArtMin96\\FilamentPopover\\Facades\\FilamentPopover"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ArtMin96\\FilamentPopover\\": "src",
+                    "ArtMin96\\FilamentPopover\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Arthur Minasyan",
+                    "email": "artminasyanartwork@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This is my package filament-popover",
+            "homepage": "https://github.com/artmin96/filament-popover",
+            "keywords": [
+                "ArtMin96",
+                "filament-popover",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/ArtMin96/filament-popover/issues",
+                "source": "https://github.com/ArtMin96/filament-popover/tree/v1.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/ArtMin96",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-05-16T20:12:29+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",

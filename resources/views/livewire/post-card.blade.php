@@ -4,8 +4,22 @@
         <p>{{$post->text}}</p>
     </div>
     <div class="flex-col gap-2 flex justify-self-center justify-center justify-items-center items-center">
-        <img class="w-12 rounded-full" src='{{$user->avatar_url}}'/>
-        <small><p class="text-center">{{$user->name}}</p></small>
+        <x-filament-popover::preview :model="$user"
+            :view="'user-hover'"
+            :viewData="[]"
+            :allowHTML="true"
+            :arrow="true"
+            :theme="'light'"
+            :interactive="true"
+            :placement="'left'"
+            :animation="'shift-away'"
+        >
+            <div>
+                <img class="w-12 rounded-full" src='{{$user->avatar_url}}'/>
+                <small><p class="text-center mt-2">{{$user->name}}</p></small>
+            </div>
+        </x-filament-popover::preview>
+        
         @if ($isLiking)
             <button wire:click="unLike">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 24 24" stroke-width="1.5" stroke="red" class="w-6 h-6">
