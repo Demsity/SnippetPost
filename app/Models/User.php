@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -63,5 +64,10 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     public function posts(): HasMany
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function post_likes(): BelongsToMany
+    {
+        return $this->belongsToMany(user_like_post::class, 'user_like_post');
     }
 }
