@@ -12,7 +12,7 @@ class PostFeed extends Component
 
     public function mount()
     {
-        $this->posts = Post::get();
+        $this->posts = Post::all()->where('is_visable', true);
     }
 
     public function render()
