@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\user_like_post;
+use App\Models\UserFollow;
 use Livewire\Component;
 
 class PostCard extends Component
@@ -14,6 +15,7 @@ class PostCard extends Component
     public $user;
     public $date;
     public $isLiking;
+    public $isFollowing;
 
 
     public function like()
@@ -26,6 +28,18 @@ class PostCard extends Component
     {
         $this->post->removeLikeByUser(auth()->id(), $this->post_id);
         $this->isLiking = false;
+    }
+
+    public function follow()
+    {
+        $this->user->addFollowUser(auth()->id(), $this->post->user_id);
+        $this->isFollowing = true;
+    }
+
+    public function unFollow()
+    {
+        $this->user->removeFollowUser(auth()->id(), $this->post->user_id);
+        $this->isFollowing = false;
     }
 
     public function mount()
@@ -44,7 +58,17 @@ class PostCard extends Component
                 $this->isLiking = false;
             }
         }
+        foreach(UserFollow::where('primary_user_id', auth()->id())->where('following_user_id', $this->post->user_id)->get() as $following)
+        {
+            if($following->following_user_id == $this->post->user_id)
+            {
+                
+                $this->isFollowing = true;
+            }else {
 
+                $this->isFollowing = false;
+            }
+        }
     }
 
     public function render()

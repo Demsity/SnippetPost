@@ -35,6 +35,19 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         'avatar_url'
     ];
 
+    public function addFollowUser($auth_user, $following_user)
+    {
+        $follow = new UserFollow;
+        $follow->primary_user_id = $auth_user;
+        $follow->following_user_id = $following_user;
+        $follow->save();
+    }
+
+    public function removeFollowUser($auth_user, $following_user)
+    {
+        UserFollow::where('primary_user_id', $auth_user)->where('following_user_id', $following_user)->delete();
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

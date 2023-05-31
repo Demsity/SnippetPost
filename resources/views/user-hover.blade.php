@@ -1,5 +1,3 @@
 <div>
-    <img class="h-14 rounded" src="{{$model->avatar_url}}"/>
-    <p>{{$model->name}}</p>
-    <button>Subscribe</button>
+    @livewire('user-hover-livewire', ['user_id' => $model->id, 'user_name' => $model->name, 'avatar_url' => $model->avatar_url])
 </div>
